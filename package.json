@@ -1,0 +1,27 @@
+{
+  "name": "desktop-dog",
+  "version": "0.1.0",
+  "author": "Vibe Anywhere",
+  "description": "A lifelike always-on-top Windows desktop dog with an acknowledgement message inbox",
+  "main": "src/main.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "test": "node --test",
+    "pack:win": "electron-builder --win nsis portable --config.electronDist=node_modules/electron/dist",
+    "dist:win": "electron-builder --win nsis --config.electronDist=node_modules/electron/dist"
+  },
+  "devDependencies": {
+    "electron": "43.2.0",
+    "electron-builder": "26.0.12"
+  },
+  "build": {
+    "appId": "com.vibeanywhere.desktopdog",
+    "productName": "桌面小狗",
+    "asar": true,
+    "files": ["src/**/*", "config.default.json", "package.json"],
+    "win": {"target": ["nsis", "portable"], "artifactName": "DesktopDog-${version}-${arch}.${ext}"},
+    "nsis": {"oneClick": false, "allowToChangeInstallationDirectory": true, "createDesktopShortcut": true, "createStartMenuShortcut": true}
+  }
+}

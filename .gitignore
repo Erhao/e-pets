@@ -1,0 +1,6 @@
+node_modules/
+dist/
+release/
+.electron-data/
+npm-debug.log*
+.codegraph/

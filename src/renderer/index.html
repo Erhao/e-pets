@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>桌面小狗</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <main id="pet-stage">
+    <section id="messages" aria-live="polite"></section>
+    <div id="dog-wrap" class="interactive" title="双击摸摸我，右键打开菜单">
+      <div id="shadow"></div>
+      <div id="tail"><span></span></div>
+      <div id="body"><div class="chest"></div><div class="paw left"></div><div class="paw right"></div></div>
+      <div id="head">
+        <div class="ear left"></div><div class="ear right"></div>
+        <div class="face-patch"></div>
+        <div class="eye left"><i></i></div><div class="eye right"><i></i></div>
+        <div class="muzzle"><div class="nose"></div><div class="mouth"></div><div class="tongue"></div></div>
+      </div>
+      <div id="heart">♥</div>
+    </div>
+    <div id="pet-menu" class="interactive hidden"><button id="config">打开配置</button><button id="quit">让小狗休息</button></div>
+  </main>
+  <script src="app.js"></script>
+</body></html>

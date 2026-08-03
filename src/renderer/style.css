@@ -1,0 +1,27 @@
+:root { --fur:#b96f39; --fur-dark:#704124; --cream:#f4d6ab; --ink:#38251d; }
+* { box-sizing:border-box; user-select:none; }
+html,body,#pet-stage { width:100%; height:100%; margin:0; overflow:hidden; background:transparent; font-family:"Segoe UI","Microsoft YaHei",sans-serif; }
+#dog-wrap { position:absolute; width:190px; height:225px; transform-origin:bottom center; cursor:pointer; }
+#shadow { position:absolute; left:28px; bottom:1px; width:135px; height:25px; border-radius:50%; background:#0003; filter:blur(6px); }
+#body { position:absolute; left:43px; bottom:14px; width:108px; height:112px; border-radius:51% 51% 38% 38%; background:linear-gradient(100deg,var(--fur-dark),var(--fur) 18%,#c98249 75%,var(--fur-dark)); box-shadow:inset -9px -8px 15px #63361c55; }
+.chest { position:absolute; left:30px; top:20px; width:50px; height:75px; border-radius:55% 45% 50% 50%; background:var(--cream); opacity:.9; }
+.paw { position:absolute; bottom:-4px; width:35px; height:45px; border-radius:45% 45% 35% 35%; background:#a75f32; box-shadow:inset 0 -5px 0 #e4bb8c; }.paw.left{left:8px}.paw.right{right:8px}
+#head { position:absolute; left:29px; top:16px; width:134px; height:124px; border-radius:49% 51% 44% 46%; background:radial-gradient(circle at 43% 30%,#d28a50,var(--fur) 60%,#8b4d28); transform-origin:50% 76%; transition:transform .45s cubic-bezier(.2,.8,.3,1); box-shadow:inset -8px -7px 13px #62351d55,0 3px 5px #0002; }
+.ear { position:absolute; top:3px; width:45px; height:75px; z-index:-1; background:linear-gradient(var(--fur-dark),#8f502d); transition:transform .4s; }.ear.left{left:-18px;border-radius:70% 30% 60% 45%;transform:rotate(18deg)}.ear.right{right:-18px;border-radius:30% 70% 45% 60%;transform:rotate(-18deg)}
+.face-patch { position:absolute; left:25px; top:5px; width:47px; height:70px; transform:rotate(-10deg); border-radius:60% 35% 50%; background:#f3c996; opacity:.62; }
+.eye { position:absolute; top:47px; width:24px; height:22px; border-radius:50%; background:#fff4dc; overflow:hidden; transition:height .1s,top .1s; }.eye.left{left:27px}.eye.right{right:27px}.eye i{position:absolute;width:13px;height:15px;left:6px;top:4px;border-radius:50%;background:#2b1c16;transition:transform .22s}.eye i:after{content:"";position:absolute;left:3px;top:2px;width:4px;height:4px;border-radius:50%;background:white}
+#head.blink .eye { height:3px; top:57px; }
+.muzzle { position:absolute; left:34px; top:67px; width:68px; height:48px; border-radius:48% 48% 52% 52%; background:var(--cream); }
+.nose { position:absolute; left:23px; top:2px; width:23px; height:16px; border-radius:55% 55% 48% 48%; background:#39251d; box-shadow:inset 3px 2px 2px #fff3; }
+.mouth { position:absolute; left:27px; top:19px; width:17px; height:12px; border-bottom:2px solid var(--ink); border-radius:0 0 50% 50%; }
+.tongue { display:none; position:absolute; left:27px; top:29px; width:18px; height:19px; border-radius:4px 4px 12px 12px; background:#e78383; }.happy .tongue{display:block}.happy .mouth{height:17px;background:#5b3028;border-radius:5px 5px 50% 50%;}
+#tail { position:absolute; right:12px; bottom:71px; width:68px; height:23px; transform-origin:left center; animation:wag 1.8s ease-in-out infinite; z-index:-1; }#tail span{display:block;width:68px;height:24px;border-radius:40% 80% 60% 40%;background:var(--fur-dark);transform:rotate(-25deg)}
+#dog-wrap.excited #tail{animation-duration:.25s}.idle-tilt .ear.left{transform:rotate(8deg)}
+#heart { position:absolute; top:10px; right:0; color:#ec6682; font-size:30px; opacity:0; transform:scale(.3); }.petted #heart{animation:heart 1s ease-out}
+@keyframes wag{0%,100%{transform:rotate(-15deg)}50%{transform:rotate(25deg)}} @keyframes heart{0%{opacity:0;transform:translateY(8px) scale(.3)}40%{opacity:1;transform:translateY(-5px) scale(1)}100%{opacity:0;transform:translateY(-35px) scale(.8)}}
+#messages { position:absolute; display:flex; flex-direction:column; gap:10px; width:330px; }
+.message { position:relative; padding:14px 15px 12px; color:#32251f; background:#fffdf8f2; border:1px solid #e6d5bf; border-radius:16px 16px 4px 16px; box-shadow:0 8px 25px #0002; animation:arrive .42s cubic-bezier(.2,.9,.3,1); pointer-events:auto; }
+.message:after{content:"";position:absolute;right:-9px;bottom:9px;border-width:9px 0 0 10px;border-style:solid;border-color:transparent transparent transparent #fffdf8f2}.message.high{border-left:4px solid #e86969}.message-title{font-weight:700;margin-bottom:5px}.message-text{font-size:14px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}.message-meta{font-size:11px;color:#8e7b70;margin-top:7px}.ack{display:block;margin:10px 0 0 auto;padding:6px 14px;border:0;border-radius:16px;background:#a96538;color:#fff;cursor:pointer;font:inherit}.ack:hover{background:#854a29}.ack:active{transform:scale(.96)}
+@keyframes arrive{from{opacity:0;transform:translateY(12px) scale(.96)}}
+#pet-menu { position:absolute;width:145px;padding:6px;background:#fffefaf5;border:1px solid #dbc9b5;border-radius:10px;box-shadow:0 6px 22px #0003;z-index:10}.hidden{display:none!important}#pet-menu button{width:100%;border:0;background:transparent;padding:9px;text-align:left;border-radius:6px;cursor:pointer}#pet-menu button:hover{background:#f0dfcd}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}

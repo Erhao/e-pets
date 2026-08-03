@@ -1,0 +1,12 @@
+{
+  "pet": {
+    "name": "豆包",
+    "scale": 1,
+    "position": {"edge": "right", "bottom": 24, "side": 28},
+    "attention": {"lookChancePerSecond": 0.055, "lookDurationMinMs": 1400, "lookDurationMaxMs": 4200, "cooldownMinMs": 3000, "cooldownMaxMs": 8500},
+    "idle": {"blinkIntervalMinMs": 2200, "blinkIntervalMaxMs": 6800, "wanderIntervalMinMs": 5000, "wanderIntervalMaxMs": 13000}
+  },
+  "messages": {"maxVisible": 3, "expireAfterDays": 0},
+  "server": {"host": "127.0.0.1", "port": 17321, "apiKey": ""},
+  "window": {"alwaysOnTop": true, "launchAtStartup": false, "showInTaskbar": false}
+}
