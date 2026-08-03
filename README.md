@@ -22,7 +22,7 @@ npm run pack:win
 
 ## 发送消息
 
-默认仅监听本机 `127.0.0.1:17321`：
+默认监听 `0.0.0.0:17321`，可从本机或局域网访问。部署时应设置 API Key，并将防火墙访问范围限制为可信网络：
 
 ```powershell
 Invoke-RestMethod -Method Post -Uri http://127.0.0.1:17321/api/messages `
@@ -37,7 +37,7 @@ Invoke-RestMethod -Method Post -Uri http://127.0.0.1:17321/api/messages `
 - `POST /api/messages/{id}/ack`：确认消息。
 - `GET /health`：健康检查。
 
-如需其他机器发送消息，将配置中的 `server.host` 改为 `0.0.0.0`，并务必设置较长的 `server.apiKey`、配置 Windows 防火墙。调用时增加 `Authorization: Bearer <apiKey>` 请求头。
+设置 `server.apiKey` 后，调用时增加 `Authorization: Bearer <apiKey>` 请求头。Windows 防火墙建议仅允许 `LocalSubnet` 访问 TCP 17321，而不是暴露到公网。
 
 ## 可配置项
 
